@@ -1,0 +1,10 @@
+table{
+    border-collapse: collapse;
+}
+.detail td{
+    text-align: center;
+}
+.detail th{
+    padding: 20px;
+
+}
