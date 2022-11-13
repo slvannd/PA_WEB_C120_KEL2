@@ -24,7 +24,7 @@ if(!isset($_SESSION['login'])){
         <header>
    <div class="nav">
     <nav>
-            <h2 style="width:80%;">Formulir Data Pembelian</h2>
+            <h2 style="width:80%;">Formulir Data Tambah Barang</h2>
         <ul>
             <li><a href="history.php">TRANSAKSI</a></li>
             <li><a href="logout.php">LOGOUT</a></li>
@@ -34,7 +34,7 @@ if(!isset($_SESSION['login'])){
         </header>
 
         <div class="list-table">
-            <h3>Daftar Data Pembelian</h3>
+            <h3>Daftar Data Barang</h3>
             <a href="tambah_barang.php" class="tambah">Tambah Data</a>
             <table>
                 <tr class="thead">
