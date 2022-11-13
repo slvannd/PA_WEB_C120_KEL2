@@ -26,7 +26,7 @@ if(!isset($_SESSION['login'])){
     <nav>
             <h2 style="width:80%;">Formulir Data Pembelian</h2>
         <ul>
-            <li><a href="histori_transaksi.php">TRANSAKSI</a></li>
+            <li><a href="history.php">TRANSAKSI</a></li>
             <li><a href="logout.php">LOGOUT</a></li>
         </ul>
     </nav>
