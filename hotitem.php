@@ -75,6 +75,5 @@
             ubah.classList.toggle("dark");
         }
    </script>
-   <script src="scr22.js"></script>
 </body>
 </html>

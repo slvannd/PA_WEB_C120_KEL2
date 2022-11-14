@@ -54,6 +54,7 @@
             ubah.classList.toggle("dark");
         }
    </script>
+   <script src="scr.js"></script>
 
 </body>
 </html>
