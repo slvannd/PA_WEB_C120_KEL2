@@ -38,7 +38,7 @@
 </div> 
 
     <div class="header">
-        <h2>HAPPY SHOPING</h2>
+        <h2>HAPPY SHOPPING</h2>
     </div>
 
     <div class="contents">
