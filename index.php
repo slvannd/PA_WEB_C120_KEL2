@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ETAM FASHION</title>
-    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="https://fonts.googleapis.com/css?family-great+vibes" href="stylesheet" type="text/cs">
     <link rel="https://fonts.googleapis.com/css?family-great-raleway" href="stylesheet">
 </head>
