@@ -16,7 +16,7 @@ if (isset($_POST['register'])) {
             echo "
         <script>
             alert('Konfirmasi Password Anda Tidak Sesuai!');
-            document.location.href = 'regist.php';
+            document.location.href = 'registmember.php';
         </script>";
         } else {
             $sql = "INSERT INTO loginmember VALUES ('','$username', '$password')";
@@ -33,7 +33,7 @@ if (isset($_POST['register'])) {
                 echo"
                 <script>
                     alert('Registrasi Gagal');
-                    document.location.href = 'regist.php';
+                    document.location.href = 'registmember.php';
                 </script>";
             }
         }
