@@ -115,22 +115,36 @@ $result = mysqli_query($db, $perintahSQL); //variabel $result
         </table>
         <nav>
             <ul class="pagination justify-content-center">
-                <li class="page-item">
-                    <a class="page-link" <?php if ($halaman > 1) { echo "href='?halaman=$previous'"; } ?>>Previous</a>
-                </li>
                 <?php
-                for ($x = 1; $x <= $total_halaman; $x++) {
+                    if($halaman > 1){
+                        echo "
+                        <li class='page-item'>
+                            <a class='page-link' href='?halaman=$previous'>Previous</a>
+                        </li>
+                        ";
+                    }
+                    $hal_awal=$halaman - 2;
+                    $hal_awal=($hal_awal<=1) ? 1 : $hal_awal;
+                    $hal_akhir=$halaman + 2;
+                    $hal_akhir=($hal_akhir>=$total_halaman) ? $total_halaman : $hal_akhir;
+                    for ($x = $hal_awal; $x <= $hal_akhir; $x++) {
+                        $link_url=($halaman==$x) ? "" : "?halaman=$x";
+                        $active=($halaman==$x) ? "active" : "";
+                        $attr=($halaman==$x) ? "onclick='return false;'" : "";
+                        echo "
+                            <li class='page-item $active'><a class='page-link' href='$link_url' $attr>
+                                $x
+                            </a></li>
+                        ";
+                    }
+                    if($halaman < $total_halaman){
+                        echo "
+                        <li class='page-item'>
+                            <a class='page-link' href='?halaman=$next'>Next</a>
+                        </li>
+                        ";
+                    }
                 ?>
-                <li class="page-item"><a class="page-link" href="?halaman=<?php echo $x ?>">
-                        <?php echo $x; ?>
-                    </a></li>
-                <?php
-                }
-                ?>
-                <li class="page-item">
-                    <a class="page-link" <?php if ($halaman < $total_halaman) { echo "href='?halaman=$next'"; }
-                    ?>>Next</a>
-                </li>
             </ul>
         </nav>
     </div>

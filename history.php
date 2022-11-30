@@ -48,13 +48,14 @@ $result = mysqli_query($db, $perintahSQL);
             </tr>
             <tbody>
                 <?php
-                $batas = 5;
+                $batas = 2;
                 $halaman = isset($_GET['halaman']) ? (int) $_GET['halaman'] : 1;
-                $halaman_awal = ($halaman > 1) ? ($halaman * $batas) - $batas : 0;
+                $offset = $halaman - 1;
+                $halaman_awal = $offset * $batas;
 
                 $previous = $halaman - 1;
                 $next = $halaman + 1;
-                $data = mysqli_query($db, "select *, psn.jumlah as jumlah_pesanan FROM pesanan psn inner join barang brg on psn.id_barang=brg.id");
+                $data = mysqli_query($db, "select * FROM pesanan");
                 $jumlah_data = mysqli_num_rows($data);
                 $total_halaman = ceil($jumlah_data / $batas);
 
@@ -66,7 +67,7 @@ $result = mysqli_query($db, $perintahSQL);
 
                 <tr>
                     <td>
-                        <?= $i; ?>
+                        <?= $nomor; ?>
                     </td>
                     <td nowrap>
                         <?= $row['tanggal'] ?>
@@ -87,29 +88,43 @@ $result = mysqli_query($db, $perintahSQL);
                 </tr>
 
                 <?php
-                    $i++;
+                    $nomor++;
                 }
                 ?>
             </tbody>
         </table>
         <nav>
             <ul class="pagination justify-content-center">
-                <li class="page-item">
-                    <a class="page-link" <?php if ($halaman > 1) { echo "href='?halaman=$previous'"; } ?>>Previous</a>
-                </li>
                 <?php
-                for ($x = 1; $x <= $total_halaman; $x++) {
+                    if($halaman > 1){
+                        echo "
+                        <li class='page-item'>
+                            <a class='page-link' href='?halaman=$previous'>Previous</a>
+                        </li>
+                        ";
+                    }
+                    $hal_awal=$halaman - 2;
+                    $hal_awal=($hal_awal<=1) ? 1 : $hal_awal;
+                    $hal_akhir=$halaman + 2;
+                    $hal_akhir=($hal_akhir>=$total_halaman) ? $total_halaman : $hal_akhir;
+                    for ($x = $hal_awal; $x <= $hal_akhir; $x++) {
+                        $link_url=($halaman==$x) ? "" : "?halaman=$x";
+                        $active=($halaman==$x) ? "active" : "";
+                        $attr=($halaman==$x) ? "onclick='return false;'" : "";
+                        echo "
+                            <li class='page-item $active'><a class='page-link' href='$link_url' $attr>
+                                $x
+                            </a></li>
+                        ";
+                    }
+                    if($halaman < $total_halaman){
+                        echo "
+                        <li class='page-item'>
+                            <a class='page-link' href='?halaman=$next'>Next</a>
+                        </li>
+                        ";
+                    }
                 ?>
-                <li class="page-item"><a class="page-link" href="?halaman=<?php echo $x ?>">
-                        <?php echo $x; ?>
-                    </a></li>
-                <?php
-                }
-                ?>
-                <li class="page-item">
-                    <a class="page-link" <?php if ($halaman < $total_halaman) { echo "href='?halaman=$next'"; }
-                    ?>>Next</a>
-                </li>
             </ul>
         </nav>
     </div>
