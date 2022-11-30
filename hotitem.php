@@ -64,11 +64,6 @@
     </div>
 
     </div>
-    <div class="footer">
-        <div class="footer-logo">
-            <p>@Copyright by etam_fashion</p>
-        </div>
-    </div>
     <script>
         function ubahMode(){
             const ubah = document.body;
