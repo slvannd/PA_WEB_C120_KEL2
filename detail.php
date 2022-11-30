@@ -64,7 +64,7 @@ $row = mysqli_fetch_array($result);
         <table>
             <tr>
                 <td>Masukkan Jumlah Pembelian</td>
-                <td><input type="number" name="jumlah" id="jumlah" placeholder="Jumlah Pembelian"></td>
+                <td><input type="number" name="jumlah" id="jumlah" placeholder="Jumlah Pembelian" required min="1"></td>
             </tr>
             <tr>
                 <td><input type="submit" name="checkout" value="Checkout"></td>
