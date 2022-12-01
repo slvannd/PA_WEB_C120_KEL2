@@ -15,8 +15,6 @@ if(!isset($_SESSION['login'])){
 
     if(isset($_GET['id'])){
         $id = $_GET['id'];
-    
-//untuk penggunaan nama setelah nama tabel menggunakan variable untuk pemanggilan nama tabel
 $result = mysqli_query($db,"SELECT *,(SELECT SUM(jual.jumlah) FROM pesanan jual WHERE jual.id_barang=brg.id) as terjual FROM barang brg WHERE brg.id ='$id'");
 $row = mysqli_fetch_array($result);
 }

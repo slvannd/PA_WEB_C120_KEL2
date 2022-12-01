@@ -63,8 +63,7 @@ $result = mysqli_query($db, $perintahSQL); //variabel $result
                 $total_halaman = ceil($jumlah_data / $batas);
 
                 $perintahSQL_2 = "SELECT *,(SELECT SUM(jual.jumlah) FROM pesanan jual WHERE jual.id_barang=brg.id) as terjual FROM barang brg LIMIT $halaman_awal, $batas";
-                $result_2 = mysqli_query($db, $perintahSQL_2); //terjual nya mana? lihati, nade kan variabel terjual?
-                //disini jgn lagi pakai variabel $result supaya nde bingung...jgn telpon. rosyid main HP
+                $result_2 = mysqli_query($db, $perintahSQL_2); 
                 $nomor = $halaman_awal + 1;
                 $i = 1;
                 while ($row = mysqli_fetch_array($result_2)) {
