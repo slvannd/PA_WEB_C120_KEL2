@@ -21,7 +21,7 @@ $result = mysqli_query($db, $perintahSQL); //variabel $result
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     <title>SilviaFashion</title>
-    <link rel="stylesheet" href="css/form1.css">
+    <link rel="stylesheet" href="css/form.css">
 </head>
 
 <body>
@@ -52,7 +52,7 @@ $result = mysqli_query($db, $perintahSQL); //variabel $result
             </tr>
             <tbody>
                 <?php
-                $batas = 5;
+                $batas = 10;
                 $halaman = isset($_GET['halaman']) ? (int) $_GET['halaman'] : 1;
                 $halaman_awal = ($halaman > 1) ? ($halaman * $batas) - $batas : 0;
 
